@@ -151,10 +151,10 @@ export default function Home() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8 items-center">
-            {['Inicio', 'Servicios', 'Paquetes', 'Opiniones', 'Galería', 'Contacto'].map((item) => (
+            {['Inicio', 'Servicios', 'Paquetes', 'Opiniones', 'Galería', 'Extras', 'Contacto'].map((item) => (
               <motion.a
                 key={item}
-                href={item === 'Galería' ? '/galeria' : `#${item.toLowerCase()}`}
+                href={item === 'Galería' ? '/galeria' : item === 'Extras' ? '/extras' : `#${item.toLowerCase()}`}
                 whileHover={{ color: '#FF6B35' }}
                 className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors font-medium"
               >
@@ -185,10 +185,10 @@ export default function Home() {
             className="md:hidden bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600 py-4"
           >
             <div className="container flex flex-col gap-4">
-              {['Inicio', 'Servicios', 'Paquetes', 'Opiniones', 'Galería', 'Contacto'].map((item) => (
+              {['Inicio', 'Servicios', 'Paquetes', 'Opiniones', 'Galería', 'Extras', 'Contacto'].map((item) => (
                 <a
                   key={item}
-                  href={item === 'Galería' ? '/galeria' : `#${item.toLowerCase()}`}
+                  href={item === 'Galería' ? '/galeria' : item === 'Extras' ? '/extras' : `#${item.toLowerCase()}`}
                   className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors font-medium"
                 >
                   {item}
