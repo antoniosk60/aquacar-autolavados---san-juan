@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, ZoomIn, Menu, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import ThemeToggle from '@/components/ThemeToggle';
 
 /**
  * AQUACAR Gallery - Galería de imágenes de servicios
@@ -126,6 +127,7 @@ export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const filteredImages = selectedCategory === 'todos'
     ? galleryImages
@@ -145,96 +147,223 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-[#0A1F44] to-[#FF6B35] text-white py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-5xl font-bold mb-4">Galería de Servicios</h1>
-            <p className="text-lg opacity-90">
-              Descubre la calidad y profesionalismo de AQUACAR en cada imagen
-            </p>
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      {/* Navigation Header */}
+      <motion.header
+        className="sticky top-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm"
+      >
+        <div className="container flex items-center justify-between py-4">
+          <motion.div className="flex items-center gap-2" whileHover={{ scale: 1.05 }}>
+            <div className="text-3xl font-bold text-primary">🚗</div>
+            <div>
+              <h1 className="text-xl font-bold text-primary">AQUACAR</h1>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Premium Autolavados</p>
+            </div>
           </motion.div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex gap-8 items-center">
+            {['Inicio', 'Servicios', 'Paquetes', 'Opiniones', 'Galería', 'Extras', 'Contacto'].map((item) => (
+              <motion.a
+                key={item}
+                href={item === 'Galería' ? '/galeria' : item === 'Extras' ? '/extras' : `#${item.toLowerCase()}`}
+                whileHover={{ color: '#FF6B35' }}
+                className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors font-medium"
+              >
+                {item}
+              </motion.a>
+            ))}
+            <ThemeToggle />
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600 py-4"
+          >
+            <div className="container flex flex-col gap-4">
+              {['Inicio', 'Servicios', 'Paquetes', 'Opiniones', 'Galería', 'Extras', 'Contacto'].map((item) => (
+                <a
+                  key={item}
+                  href={item === 'Galería' ? '/galeria' : item === 'Extras' ? '/extras' : `#${item.toLowerCase()}`}
+                  className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors font-medium"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </motion.nav>
+        )}
+      </motion.header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap gap-3 mb-12 justify-center"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => {
-                setSelectedCategory(category);
-                setSelectedImageIndex(0);
-              }}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 capitalize ${
-                selectedCategory === category
-                  ? 'bg-[#FF6B35] text-white shadow-lg scale-105'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
-              }`}
+      <main className="flex-1">
+        {/* Page Header */}
+        <div className="bg-gradient-to-r from-[#0A1F44] to-[#FF6B35] text-white py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              {category === 'todos' ? 'Todas' : category}
-            </button>
-          ))}
-        </motion.div>
+              <h1 className="text-5xl font-bold mb-4">Galería de Servicios</h1>
+              <p className="text-lg opacity-90">
+                Descubre la calidad y profesionalismo de AQUACAR en cada imagen
+              </p>
+            </motion.div>
+          </div>
+        </div>
 
-        {/* Gallery Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <AnimatePresence mode="wait">
-            {filteredImages.map((image, index) => (
-              <motion.div
-                key={image.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group cursor-pointer"
-                onClick={() => handleImageClick(index)}
+        {/* Gallery Content */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          {/* Category Filter */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-wrap gap-3 mb-12 justify-center"
+          >
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setSelectedImageIndex(0);
+                }}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 capitalize ${
+                  selectedCategory === category
+                    ? 'bg-[#FF6B35] text-white shadow-lg scale-105'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
+                }`}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-64 bg-gray-100 dark:bg-gray-800">
-                  <img
-                    src={image.url}
-                    alt={image.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileHover={{ scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                      className="bg-white/90 p-3 rounded-full"
-                    >
-                      <ZoomIn className="w-6 h-6 text-[#FF6B35]" />
-                    </motion.div>
-                  </div>
+                {category === 'todos' ? 'Todas' : category}
+              </button>
+            ))}
+          </motion.div>
 
-                  {/* Title */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <p className="text-white font-semibold">{image.title}</p>
+          {/* Gallery Grid */}
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <AnimatePresence mode="wait">
+              {filteredImages.map((image, index) => (
+                <motion.div
+                  key={image.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="group cursor-pointer"
+                  onClick={() => handleImageClick(index)}
+                >
+                  <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-64 bg-gray-100 dark:bg-gray-800">
+                    <img
+                      src={image.url}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileHover={{ scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-white/90 p-3 rounded-full"
+                      >
+                        <ZoomIn className="w-6 h-6 text-[#FF6B35]" />
+                      </motion.div>
+                    </div>
+
+                    {/* Title */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <p className="text-white font-semibold">{image.title}</p>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="container">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"
+          >
+            {[
+              {
+                title: 'AQUACAR Autolavados',
+                content: 'Servicio profesional de autolavado con tecnología de punta'
+              },
+              {
+                title: 'Enlaces Rápidos',
+                links: ['Servicios', 'Paquetes', 'Opiniones', 'Contacto']
+              },
+              {
+                title: 'Síguenos',
+                social: true
+              }
+            ].map((section, i) => (
+              <motion.div key={i}>
+                <h3 className="text-white font-bold mb-4">{section.title}</h3>
+                {section.content && <p className="text-sm">{section.content}</p>}
+                {section.links && (
+                  <ul className="space-y-2 text-sm">
+                    {section.links.map((link) => (
+                      <li key={link}>
+                        <a href={`#${link.toLowerCase()}`} className="hover:text-accent transition-colors">
+                          {link}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {section.social && (
+                  <div className="flex gap-4">
+                    {[Facebook, Instagram, Youtube].map((Icon, j) => (
+                      <motion.a
+                        key={j}
+                        href="#"
+                        whileHover={{ scale: 1.2, color: '#FF6B35' }}
+                        className="hover:text-accent transition-colors"
+                      >
+                        <Icon size={20} />
+                      </motion.a>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
+          </motion.div>
+
+          <motion.div
+            className="border-t border-gray-800 pt-8 text-center text-sm"
+          >
+            <p>&copy; 2026 AQUACAR Autolavados. Todos los derechos reservados.</p>
+            <p className="mt-2">Av. Cuauhtémoc 5301, San Juan Tlalpizahuac, Ixtapaluca</p>
+          </motion.div>
+        </div>
+      </footer>
 
       {/* Lightbox Modal */}
       <Dialog open={isLightboxOpen} onOpenChange={setIsLightboxOpen}>
@@ -288,6 +417,19 @@ export default function Gallery() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* WhatsApp Floating Button */}
+      <motion.a
+        href="https://wa.me/5543180287"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.15, rotate: 10 }}
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-6 right-6 p-4 bg-[#FF6B35] text-white rounded-full shadow-lg hover:shadow-xl transition-all z-40"
+        title="Contactar por WhatsApp"
+      >
+        <MessageCircle size={28} />
+      </motion.a>
     </div>
   );
 }
