@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-accent-secondary: #ff006e;
+  --color-accent-tertiary: #ffbe0b;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -43,76 +45,80 @@
 }
 
 :root {
-  /* AQUACAR Brand Colors */
-  --primary: #0A1F44;
-  --primary-foreground: #FFFFFF;
-  --accent: #FF6B35;
-  --accent-foreground: #FFFFFF;
-  --sidebar-primary: #0A1F44;
-  --sidebar-primary-foreground: #FFFFFF;
-  --chart-1: #FF6B35;
-  --chart-2: #0A1F44;
-  --chart-3: #1F3A5F;
-  --chart-4: #2E5090;
-  --chart-5: #3D65B5;
+  /* AQUACAR Dark Tech Premium Colors */
+  --primary: #0f0f1e;
+  --primary-light: #1a1a2e;
+  --primary-foreground: #ffffff;
+  --accent: #00d9ff;
+  --accent-secondary: #ff006e;
+  --accent-tertiary: #ffbe0b;
+  --accent-foreground: #0f0f1e;
+  --sidebar-primary: #0f0f1e;
+  --sidebar-primary-foreground: #ffffff;
+  --chart-1: #00d9ff;
+  --chart-2: #ff006e;
+  --chart-3: #ffbe0b;
+  --chart-4: #00a8cc;
+  --chart-5: #ff4081;
   
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: #F5F5F5;
-  --secondary-foreground: #0A1F44;
-  --muted: #E8E8E8;
-  --muted-foreground: #666666;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: #E0E0E0;
-  --input: #F9F9F9;
-  --ring: #FF6B35;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: #FF6B35;
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --radius: 0.75rem;
+  --background: #0f0f1e;
+  --foreground: #ffffff;
+  --card: #1a1a2e;
+  --card-foreground: #ffffff;
+  --popover: #1a1a2e;
+  --popover-foreground: #ffffff;
+  --secondary: #2a2a3e;
+  --secondary-foreground: #ffffff;
+  --muted: #666666;
+  --muted-foreground: #b4b4b4;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a2e;
+  --ring: #00d9ff;
+  --sidebar: #1a1a2e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-accent: #00d9ff;
+  --sidebar-accent-foreground: #0f0f1e;
+  --sidebar-border: #333333;
+  --sidebar-ring: #00d9ff;
 }
 
 .dark {
-  --primary: #0A1F44;
-  --primary-foreground: #FFFFFF;
-  --sidebar-primary: #1F3A5F;
-  --sidebar-primary-foreground: #FFFFFF;
-  --background: #0F1419;
-  --foreground: #FFFFFF;
-  --card: #1A2332;
-  --card-foreground: #FFFFFF;
-  --popover: #1A2332;
-  --popover-foreground: #FFFFFF;
-  --secondary: #2E3E52;
-  --secondary-foreground: #FFFFFF;
-  --muted: #3D4A5C;
-  --muted-foreground: #B0B8C1;
-  --accent: #FF6B35;
-  --accent-foreground: #FFFFFF;
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: #2E3E52;
-  --input: #1A2332;
-  --ring: #FF6B35;
-  --chart-1: #FF6B35;
-  --chart-2: #0A1F44;
-  --chart-3: #1F3A5F;
-  --chart-4: #2E5090;
-  --chart-5: #3D65B5;
-  --sidebar: #1A2332;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-accent: #FF6B35;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #2E3E52;
-  --sidebar-ring: #FF6B35;
+  --primary: #0f0f1e;
+  --primary-light: #1a1a2e;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #1a1a2e;
+  --sidebar-primary-foreground: #ffffff;
+  --background: #0f0f1e;
+  --foreground: #ffffff;
+  --card: #1a1a2e;
+  --card-foreground: #ffffff;
+  --popover: #1a1a2e;
+  --popover-foreground: #ffffff;
+  --secondary: #2a2a3e;
+  --secondary-foreground: #ffffff;
+  --muted: #666666;
+  --muted-foreground: #b4b4b4;
+  --accent: #00d9ff;
+  --accent-foreground: #0f0f1e;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a2e;
+  --ring: #00d9ff;
+  --chart-1: #00d9ff;
+  --chart-2: #ff006e;
+  --chart-3: #ffbe0b;
+  --chart-4: #00a8cc;
+  --chart-5: #ff4081;
+  --sidebar: #1a1a2e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-accent: #00d9ff;
+  --sidebar-accent-foreground: #0f0f1e;
+  --sidebar-border: #333333;
+  --sidebar-ring: #00d9ff;
 }
 
 @layer base {
@@ -123,6 +129,7 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -157,27 +164,27 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
+
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-full hover:bg-accent/80;
+  }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -188,53 +195,187 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
   }
   
-  /* AQUACAR Custom Utilities */
+  /* Botones Premium */
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out;
+    @apply bg-accent text-primary px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out hover:shadow-lg hover:shadow-accent/50;
   }
   
   .btn-primary:hover {
-    @apply opacity-90;
+    @apply -translate-y-1;
   }
   
   .btn-accent {
-    @apply bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out;
+    @apply bg-accent-secondary text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out hover:shadow-lg hover:shadow-accent-secondary/50;
   }
   
   .btn-accent:hover {
-    @apply opacity-90;
+    @apply -translate-y-1;
+  }
+
+  .btn-tertiary {
+    @apply bg-accent-tertiary text-primary px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out hover:shadow-lg hover:shadow-accent-tertiary/50;
+  }
+  
+  .btn-tertiary:hover {
+    @apply -translate-y-1;
   }
   
   .btn-outline {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out;
+    @apply border-2 border-accent text-accent px-6 py-3 rounded-lg font-bold transition-all duration-300 ease-out hover:bg-accent hover:text-primary;
   }
   
   .btn-outline:hover {
-    @apply bg-primary text-primary-foreground;
+    @apply -translate-y-1;
   }
-  
+
+  /* Tarjetas */
   .card-shadow {
-    @apply shadow-md hover:shadow-lg transition-shadow duration-300;
+    @apply shadow-lg shadow-black/50 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300;
   }
   
+  .card-glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-xl;
+  }
+
+  .card-dark {
+    @apply bg-card border border-border rounded-xl;
+  }
+
+  /* Gradientes */
   .gradient-line {
-    background: linear-gradient(90deg, #0A1F44 0%, #FF6B35 100%);
+    @apply h-1 bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary rounded-full;
   }
   
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-accent/20 via-accent-secondary/20 to-accent-tertiary/20;
+  }
+
+  /* Efectos de Brillo */
+  .glow-accent {
+    @apply shadow-lg shadow-accent/50;
+  }
+
+  .glow-secondary {
+    @apply shadow-lg shadow-accent-secondary/50;
+  }
+
+  .glow-tertiary {
+    @apply shadow-lg shadow-accent-tertiary/50;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/40 border border-white/10 rounded-xl;
+  }
+
+  /* Badges */
+  .badge-accent {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent/20 text-accent border border-accent/50;
+  }
+
+  .badge-secondary {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent-secondary/20 text-accent-secondary border border-accent-secondary/50;
+  }
+
+  .badge-tertiary {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent-tertiary/20 text-accent-tertiary border border-accent-tertiary/50;
+  }
+
   .section-divider {
-    @apply h-1 w-12 bg-accent rounded-full;
+    @apply h-1 w-12 bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary rounded-full;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent via-accent-secondary to-accent-tertiary bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    @apply border-2 border-transparent bg-clip-padding;
+    background-image: linear-gradient(#0f0f1e, #0f0f1e), linear-gradient(135deg, #00d9ff, #ff006e, #ffbe0b);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px);
+  }
+
+  .transition-all {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/50;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent/50;
+  }
+
+  /* Animaciones personalizadas */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 40px rgba(0, 217, 255, 0.8);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
   }
 }
